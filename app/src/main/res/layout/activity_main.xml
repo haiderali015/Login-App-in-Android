@@ -40,6 +40,7 @@
         android:layout_margin="10dp"
         android:padding="25dp"
         android:background="#30ffffff"
+        android:inputType="textPassword"
         android:drawableLeft="@drawable/password_icon"
         android:drawablePadding="20dp"/>
 
@@ -78,15 +79,15 @@
         android:layout_height="wrap_content"
         android:text="sign in with"
         android:textColor="@color/white"
-        android:id="@+id/media"
+        android:id="@+id/others"
         android:textSize="20dp"
-        android:layout_below="@id/forgotpass"
         android:layout_centerHorizontal="true"
-        android:layout_margin="5dp"
+        android:layout_above="@id/socialicons"
         android:textStyle="italic"
         />
     <LinearLayout
         android:layout_width="match_parent"
+        android:id="@+id/socialicons"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:gravity="center"
