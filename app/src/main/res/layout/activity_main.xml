@@ -24,7 +24,11 @@
         android:hint="Username"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        
+        android:layout_margin="10dp"
+        android:padding="25dp"
+        android:background="#30ffffff"/>
+
+    
 
 
 
