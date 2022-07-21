@@ -29,6 +29,19 @@
         android:background="#30ffffff"
         android:drawableLeft="@drawable/username_icon"
         android:drawablePadding="20dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/password"
+        android:layout_below="@id/username"
+        android:hint="Username"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:layout_margin="10dp"
+        android:padding="25dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/password_icon"
+        android:drawablePadding="20dp"/>
 
 
 
