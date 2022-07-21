@@ -8,12 +8,26 @@
     tools:context=".MainActivity">
     <TextView
         android:layout_width="match_parent"
+        android:id="@+id/signin"
         android:layout_height="wrap_content"
         android:text="Sign In"
         android:textColor="@color/white"
         android:textSize="35dp"
         android:layout_margin="50dp"
         android:gravity="center"
+        android:textStyle="bold"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/username"
+        android:layout_below="@id/signin"
+        android:hint="Username"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        
+
+
+
 
 
 
