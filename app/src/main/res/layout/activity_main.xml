@@ -73,5 +73,40 @@
         android:backgroundTint="@color/cardview_shadow_start_color"
         android:text="Forgot Password ?" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sign in with"
+        android:textColor="@color/white"
+        android:id="@+id/media"
+        android:textSize="20dp"
+        android:layout_below="@id/forgotpass"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"
+        android:textStyle="italic"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+
+        >
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="20dp"
+            android:src="@drawable/googleicon" />
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="20dp"
+            android:src="@drawable/fbicon" />
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="20dp"
+            android:src="@drawable/twittericon" />
+    ></LinearLayout>
 
 </RelativeLayout>
