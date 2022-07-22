@@ -1,5 +1,6 @@
 package com.example.loginapp;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -13,12 +14,30 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL("create table Users(username TEXT primary key, password TEXT)");
 
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("drop table if exists Users");
+    }
 
+    public Boolean insertData(String username , String password)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("username",username);
+        values.put("password",password);
+
+        long result = db.insert("users",null,values);
+        if(result==-1)
+        {
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 }
