@@ -2,6 +2,7 @@ package com.example.loginapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -22,47 +23,46 @@ public class MainActivity extends AppCompatActivity {
 
          username =  findViewById(R.id.username);
          password =  findViewById(R.id.password);
-         cnfrmpass = findViewById(R.id.cnfrmpass);
-        DBHelper Db= new DBHelper(this);
+         DBHelper Db= new DBHelper(this);
+         Button makeacc=(Button) findViewById(R.id.makeacc);
 
         Button loginbtn = (Button) findViewById(R.id.loginbtn);
-        Button register = (Button) findViewById(R.id.register);
+
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(username.getText().toString().equals("haider") && password.getText().toString().equals("ali"))
-                {
-                    //correct
-                    Toast.makeText(MainActivity.this, "Login Successfull", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    //incorrect
-                    Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
                 String uname=username.getText().toString();
                 String pass=password.getText().toString();
-                String repass=cnfrmpass.getText().toString();
-
-                if(TextUtils.isEmpty(uname) || TextUtils.isEmpty(pass) || TextUtils.isEmpty(repass))
+                if(TextUtils.isEmpty(uname) || TextUtils.isEmpty(pass))
                 {
                     Toast.makeText(MainActivity.this,"All fields are required",Toast.LENGTH_SHORT).show();
                 }
-                else
-                {
-
+                else{
+                    Boolean checkunamepass =Db.checkUsernamePassword(uname,pass);
+                    if(checkunamepass==true)
+                    {
+                        Toast.makeText(MainActivity.this,"Login Successfully",Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(),Home.class);
+                        startActivity(intent);
+                    }
+                    else{
+                        Toast.makeText(MainActivity.this,"Login Failed",Toast.LENGTH_SHORT).show();
+                    }
                 }
-
             }
         });
+
+        makeacc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),signup.class);
+                startActivity(intent);
+            }
+        });
+
+
+
 
 
 
