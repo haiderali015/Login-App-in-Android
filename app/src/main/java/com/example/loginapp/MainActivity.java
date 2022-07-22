@@ -3,6 +3,7 @@ package com.example.loginapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,6 +51,15 @@ public class MainActivity extends AppCompatActivity {
                 String uname=username.getText().toString();
                 String pass=password.getText().toString();
                 String repass=cnfrmpass.getText().toString();
+
+                if(TextUtils.isEmpty(uname) || TextUtils.isEmpty(pass) || TextUtils.isEmpty(repass))
+                {
+                    Toast.makeText(MainActivity.this,"All fields are required",Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+
+                }
 
             }
         });
