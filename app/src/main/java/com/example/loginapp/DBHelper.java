@@ -2,6 +2,7 @@ package com.example.loginapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -24,6 +25,8 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("drop table if exists Users");
     }
 
+
+    //insert Data code
     public Boolean insertData(String username , String password)
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -31,7 +34,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put("username",username);
         values.put("password",password);
 
-        long result = db.insert("users",null,values);
+        long result = db.insert("Users",null,values);
         if(result==-1)
         {
             return false;
@@ -40,4 +43,21 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+
+
+    //check username code
+    public Boolean checkUsername(String username)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from Users where username=?" , new String[] {username});
+        if(cursor.getCount()>0)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    
 }
