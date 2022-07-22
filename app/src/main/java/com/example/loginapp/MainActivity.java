@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         TextView password = (TextView) findViewById(R.id.password);
 
         Button loginbtn = (Button) findViewById(R.id.loginbtn);
+        Button register = (Button) findViewById(R.id.register);
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
                     //incorrect
                     Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               
             }
         });
 
