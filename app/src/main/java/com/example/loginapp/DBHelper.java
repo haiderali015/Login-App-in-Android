@@ -45,7 +45,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-    //check username code
+    //check username code to check unique usernme
     public Boolean checkUsername(String username)
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -59,5 +59,15 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    
+    public Boolean checkUsernamePassword(String username,String password)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from Users where username=? and password=?",new String[]{username,password});
+        if(cursor.getCount()>0)
+            return true;
+        else
+            return false;
+    }
+
+
 }
